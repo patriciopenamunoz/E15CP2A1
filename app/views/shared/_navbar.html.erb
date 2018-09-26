@@ -17,19 +17,26 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#"
+             class="dropdown-toggle"
+             data-toggle="dropdown"
+             role="button"
+             aria-expanded="false">
+             <%= user_signed_in? ? current_user.username : 'Access' %>
+             <span class="caret"></span>
+           </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <% if user_signed_in? %>
+            <li><%= link_to 'Modify user', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign out',
+                            destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <% end %>
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
