@@ -28,12 +28,16 @@
       <div class="row">
         <div class="col-md-8"></div>
         <div class="col-md-2">
-          <p><%= link_to 'Edit', edit_history_path(@history), class: "btn btn-warning btn-sm" %> <%= link_to 'Back', histories_path, class: "btn btn-info btn-sm" %></p>
+          <p>
+            <% if @history.user == current_user %>
+            <%= link_to 'Edit', edit_history_path(@history),
+                         class: "btn btn-warning btn-sm" %>
+            <% end %>
+            <%= link_to 'Back', histories_path,
+            class: "btn btn-info btn-sm" %>
+          </p>
         </div>
         <div class="col-md-2"></div>
       </div>
 
 </div>
-
-
-
