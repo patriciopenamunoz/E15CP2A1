@@ -29,7 +29,7 @@
         <div class="col-md-8"></div>
         <div class="col-md-2">
           <p>
-            <% if @history.user == current_user %>
+            <% if @history.user == current_user || current_user.admin %>
             <%= link_to 'Edit', edit_history_path(@history),
                          class: "btn btn-warning btn-sm" %>
             <% end %>

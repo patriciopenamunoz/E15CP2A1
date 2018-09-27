@@ -9,6 +9,10 @@ class HistoriesController < ApplicationController
     @histories = History.all
   end
 
+  def mines
+    @histories = History.where(user_id: current_user)
+  end
+
   # GET /histories/1
   # GET /histories/1.json
   def show

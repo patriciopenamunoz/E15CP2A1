@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     sessions: 'users/sessions'
   }
+  get 'histories/mines'
   resources :histories
 
   root "histories#index"
