@@ -26,6 +26,9 @@
            </a>
           <ul class="dropdown-menu" role="menu">
             <% if user_signed_in? %>
+            <% if current_user.admin %>
+            <li><%= link_to 'Admin panel', users_admin_path %></li>
+            <% end %>
             <li><%= link_to 'My histories', histories_mines_path %></li>
             <li><%= link_to 'Modify user', edit_user_registration_path %></li>
             <li><%= link_to 'Sign out',

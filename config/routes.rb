@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/admin'
+  post 'users/admin/:id', to: 'users#def_admin', as: 'def_admin'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords',
