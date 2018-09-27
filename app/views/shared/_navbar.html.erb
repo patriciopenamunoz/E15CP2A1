@@ -26,6 +26,7 @@
            </a>
           <ul class="dropdown-menu" role="menu">
             <% if user_signed_in? %>
+            <li><%= link_to 'My histories', histories_mines_path %></li>
             <li><%= link_to 'Modify user', edit_user_registration_path %></li>
             <li><%= link_to 'Sign out',
                             destroy_user_session_path, method: :delete %></li>
